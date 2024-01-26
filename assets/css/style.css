@@ -16,7 +16,7 @@ body {
 	font-weight: 400;
 	height: 100vh;
 	color: #333;
-	background-image: url("assets/images/golf-course.jpeg");
+	background-image: url("../images/golf-course.jpeg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -101,14 +101,15 @@ main {
 }
 .game-name {
 	position: absolute;
-	left: 10px;
-	top: 10px;
-	font-size: 3rem;
-	font-family: "Comic Sans MS", cursive, sans-serif; /* Use a fun font */
+	left: 20px;
+	top: 80px;
+	font-size: 4rem;
+	font-family: "Comic Sans MS", cursive, sans-serif;
 	margin-bottom: 1rem;
 	color: #cf0221;
 	font-weight: bold; /* Make the text bold */
-	transform: skewY(90deg); /* Skew the text 90 degrees vertically */
+	z-index: 1; /* Make sure it appears on top of the game score */
+	transform: rotate(-25deg); /* Rotate the text by -90 degrees to make it vertical */
 }
 
 .instruction {

@@ -34,6 +34,7 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 ## Table of Contents
 
+- [Deployment](#deployment)
 - [Description](#description)
 - [Game Rules](#game-rules)
 - [Getting Started](#getting-started)
@@ -41,6 +42,24 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 - [Images] (#image)
 - [Author](#author)
 - [License](#license)
+
+## Deployment
+
+<!-- From Course notes -->
+
+To deploy the Hospitality Help Hub, follow these steps:
+
+1. Clone repo to your own Github account.
+2. Go to the Settings tab of your GitHub repo.
+3. On the left-hand sidebar, in the Code and automation section, select Pages.
+4. Make sure:
+   - Source is set to 'Deploy from Branch'.
+   - Main branch is selected.
+   - Folder is set to / (root).
+5. Under Branch, click Save.
+6. Go back to the Code tab. Wait a few minutes for the build to finish and refresh your repo.
+7. On the right-hand side, in the Environments section, click on 'github-pages'.
+8. Click View deployment to see the live site. The URL will look similar to YOUR-USERNAME.github.io/lhospitality-hub-project.
 
 ## Description
 
@@ -90,4 +109,3 @@ This Golf Game project was created by [Your Name]. Feel free to reach out if you
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-

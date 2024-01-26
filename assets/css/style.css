@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  color: #333;
+  background-image: url('Images/golf-course.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  position: relative;
+  width: 100rem;
+  height: 65rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(200px);
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player {
+  flex: 1;
+  padding: 2rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
+
+.name {
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.btn--roll,
+.btn--auto {
+  font-family: inherit;
+  font-size: 2.2rem;
+  padding: 1rem 4rem;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  background-color: #3eb606;
+  color: beige;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.btn--auto {
+  font-size: 2.2rem;
+  padding: 1rem 2rem;
+  margin: 1rem 2rem 1rem 1rem;
+}
+
+.btn--new {
+  font-family: inherit;
+  font-size: 1.8rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  background-color: #d70303;
+  border: none;
+  color: beige;
+  border-radius: 5px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.game-name {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 3rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Use a fun font */
+  margin-bottom: 1rem;
+  color: #cf0221;
+  font-weight: bold; /* Make the text bold */
+  transform: skewY(90deg); /* Skew the text 90 degrees vertically */
+}
+
+.instruction {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #555;
+}
+
+.current-score,
+.swings,
+.total-score {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #4d7c0f;
+}
+
+.hole-info {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  padding: 0 2rem;
+  background-color: #05dafa;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  font-size: 5rem;
+  font-weight: 900;
+  color: #066891;
+}
+
+.total-par {
+  position: absolute;
+  bottom: 7.5rem;
+  left: 50%;
+  opacity: 0.9;
+  transform: translateX(-50%);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #0365b5;
+}
+
+.dice {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 10rem;
+  width: 10rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  border-radius: 15%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: solid 3px #d9d9d9;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #3eb606;
+}
+
+.player--active .name {
+  font-weight: 700;
+  color: #3eb606;
+}
+
+.player--winner {
+  background-color: #2f2f2f;
+  border: 2px solid #d70303;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #a5c956;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,10 +1,4 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+!
 
 ## Codeanywhere Reminders
 
@@ -36,4 +30,64 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 ---
 
-Happy coding!
+# Golf Game
+
+## Table of Contents
+
+- [Description](#description)
+- [Game Rules](#game-rules)
+- [Getting Started](#getting-started)
+- [How to Play](#how-to-play)
+- [Images] (#image)
+- [Author](#author)
+- [License](#license)
+
+## Description
+
+Golf Game is a simple two-player golf simulation game. Players take turns to hit the golf ball towards the hole, and the player with the fewest swings wins the game. The game includes multiple holes, each with its own par score, and the player's score is calculated based on their performance relative to the par score of each hole.
+
+## Game Rules
+
+- The game consists of multiple holes, each with its own par score, which represents the expected number of swings to complete the hole.
+- Players take turns hitting the golf ball toward the hole.
+- Players can choose to manually swing or enable an "Auto" mode for the second player, simulating play against a computer.
+- The player with the fewest swings wins each hole.
+- After both players finish a hole, the par score of that hole is added to their overall score.
+- The game ends after completing all the holes, and the player with the lowest overall score wins.
+
+## Getting Started
+
+To get started with the Golf Game, follow these steps:
+
+1. Clone or download the project from the repository: [Golf Game Repository](https://github.com/your-username/golf-game).
+
+2. Open the `index.html` file in your web browser to launch the game.
+
+3. Enjoy playing Golf Game with a friend or against the computer!
+
+## How to Play
+
+- Player 1 starts by clicking the "Swing" button to take their turn.
+
+- Player 2 can click "Swing" or the "Auto" button to enable automatic play, where the computer will take swings until the ball reaches the hole.
+
+- Players take turns and continue playing until both players finish the current hole.
+
+- After both players finish a hole, the par score of that hole is added to their overall score.
+
+- The game ends after completing all the holes, and a winner is determined based on the lowest overall score.
+
+## Image
+
+Image credit from:
+background - "https://www.istockphoto.com/vector/golf-field-with-flag-gm165594199-6744168?phrase=golf+backgrounds"
+golf icon - <a href="https://www.freepik.com/icons/golf">Icon by juicy_fish</a>
+
+## Author
+
+This Golf Game project was created by [Your Name]. Feel free to reach out if you have any questions or suggestions.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+

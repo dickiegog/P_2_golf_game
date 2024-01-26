@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Golf Game</title>
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body>
+		<div id="hole-info" class="game-name">9 Hole Golf Course!</div>
+		<main>
+			<div id="hole-info" class="hole-info">Hole 1 - Par 4</div>
+
+			<section class="player player--0 player--active">
+				<div class="name" id="name--0">Player 1</div>
+				<div class="instruction" id="instruction--0">Swing Away!</div>
+				<button class="btn btn--roll" id="btn--roll-0">Swing</button>
+				<div class="swings" id="swings--0">Swings: 0</div>
+				<div class="current-score" id="current--0">Current: 0</div>
+				<div class="total-score" id="total--0">Scorecard: 0</div>
+			</section>
+
+			<img src="assets/images/dice-1.png" alt="Dice" class="dice hidden" />
+
+			<section class="player player--1">
+				<div class="name" id="name--1">Player 2</div>
+				<div class="instruction" id="instruction--1">Waiting...</div>
+				<div>
+					<button class="btn btn--roll" id="btn--roll-1">Waiting...</button>
+					<button class="btn btn--auto" id="btn--auto-1">Auto</button>
+				</div>
+				<div class="swings" id="swings--1">Swings: 0</div>
+				<div class="current-score" id="current--1">Current: 0</div>
+				<div class="total-score" id="total--1">Scorecard: 0</div>
+			</section>
+			<div id="total-par" class="total-par">Overall Par: 0</div>
+
+			<button class="btn btn--new">New Game</button>
+		</main>
+		<script src="assets/js/script.js"></script>
+	</body>
+</html>

@@ -25,7 +25,6 @@ let againstComputer = false; // Add a variable to track if playing against a com
 
 // Initialize game
 const init = function (isAgainstComputer) {
-	console.log("Init called, isAgainstComputer:", isAgainstComputer);
 	againstComputer = isAgainstComputer; // Update the againstComputer variable
 	scores = [0, 0];
 	currentScores = [0, 0];
@@ -94,7 +93,6 @@ const switchPlayer = function () {
 	btnRoll0.textContent = activePlayer === 0 ? "Swing" : "Waiting...";
 	btnRoll1.textContent = activePlayer === 1 ? "Swing" : "Waiting...";
 	if (finishedHoles[0] && finishedHoles[1]) {
-		console.log("holeNumber:", holeNumber);
 		if (holeNumber < 9) {
 			// Move to the next hole
 			totalPar += currentPar;
@@ -232,21 +230,17 @@ btnNew.addEventListener("click", function () {
 
 // Add event listeners to choose the opponent and start the game
 document.getElementById("play-person").addEventListener("click", function () {
-	console.log("Play person clicked");
 	againstComputer = false;
 	hideInstructionsPopup();
 	init(false);
 });
 
 document.getElementById("play-computer").addEventListener("click", function () {
-	console.log("Play computer clicked");
 	againstComputer = true;
 	hideInstructionsPopup();
 	init(true);
 });
-console.log("Game status out:", playing);
 btnEnd.addEventListener("click", function () {
-	console.log("Game status in:", playing);
 	if (playing) {
 		// End the game and check for the winner
 		checkForWinner();

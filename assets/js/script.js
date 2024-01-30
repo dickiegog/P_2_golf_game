@@ -12,6 +12,7 @@ const btnNew = document.querySelector(".btn--new");
 const btnEnd = document.querySelector(".btn--end");
 const btnAuto1 = document.getElementById("btn--auto-1");
 
+// Global variables
 let scores,
 	currentScores,
 	activePlayer,
@@ -41,7 +42,6 @@ const init = function (isAgainstComputer) {
 	const instructionsPopup = document.getElementById("instructions-popup");
 	instructionsPopup.classList.remove("hidden");
 
-	// Reset the button text for both players
 	// Reset the button text for both players
 	btnRoll0.textContent = "Swing";
 	btnRoll1.textContent = "Waiting...";
@@ -77,7 +77,7 @@ const updateUI = function () {
 	document.getElementById(`name--0`).textContent = `Player 1: ${holeNumber === 1 ? "" : parScore0 === 0 ? "Par" : parScore0 + " Par"}`;
 	document.getElementById(`name--1`).textContent = `Player 2: ${holeNumber === 1 ? "" : parScore1 === 0 ? "Par" : parScore1 + " Par"}`;
 };
-
+// Change the hole number and par
 const newHole = function () {
 	currentPar = Math.floor(Math.random() * 3) + 3;
 	currentScores = [currentPar, currentPar];
@@ -85,7 +85,7 @@ const newHole = function () {
 	finishedHoles = [false, false];
 	updateUI();
 };
-
+// Change the active player
 const switchPlayer = function () {
 	activePlayer = activePlayer === 0 ? 1 : 0;
 	player0El.classList.toggle("player--active");
@@ -107,7 +107,7 @@ const switchPlayer = function () {
 		}
 	}
 };
-
+// Check for the winner based on current scores
 const checkForWinner = function () {
 	let winnerMessage = "";
 	if (scores[0] < scores[1]) {
@@ -119,7 +119,7 @@ const checkForWinner = function () {
 	}
 	alert(`Game over! Total Par: ${totalPar}\n${winnerMessage}`);
 };
-
+// Roll the dice to determine swing distance
 const rollDice = function () {
 	if (playing && !finishedHoles[activePlayer]) {
 		const roll = Math.trunc(Math.random() * 6) + 1;
@@ -155,7 +155,7 @@ const rollDice = function () {
 		}
 	}
 };
-
+// Auto-play for player 2
 const autoPlay = function () {
 	if (activePlayer === 1 && !finishedHoles[1] && playing) {
 		const roll = Math.trunc(Math.random() * 6) + 1;
@@ -197,9 +197,7 @@ const autoPlay = function () {
 		}
 	}
 };
-
-// Modify the "New Game" button event listener to reset the againstComputer variable
-
+// Message to notify player of what to do and the result of their swing
 const displayMessage = function (message) {
 	document.getElementById(`instruction--${activePlayer}`).textContent = message;
 	setTimeout(() => {

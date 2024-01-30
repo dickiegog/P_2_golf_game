@@ -10,8 +10,10 @@
 	<body>
 		<main>
 			<div class="game-name">9 Hole Golf Course!</div>
-			<div id="hole-info" class="hole-info">Hole 1 - Par 4</div>
-			<section class="player player--0 player--active">
+			<div id="hole-info" class="hole-info" alt="current hole details">Hole 1 - Par 4</div>
+
+			<!-- Player 1 data -->
+			<section class="player player--0 player--active" alt="player 1 game stats">
 				<div class="name" id="name--0">Player 1</div>
 				<div class="instruction" id="instruction--0">Swing Away!</div>
 				<button class="btn btn--roll" id="btn--roll-0">Swing</button>
@@ -19,10 +21,10 @@
 				<div class="current-score" id="current--0">Current: 0</div>
 				<div class="total-score" id="total--0">Scorecard: 0</div>
 			</section>
-
-			<img src="assets/images/dice-1.png" alt="Dice" class="dice hidden" />
-
-			<section class="player player--1">
+			<!-- Dice Roll -->
+			<img src="assets/images/dice-1.png" alt="Dice" class="dice hidden" alt="dice roll" />
+			<!-- Player 2 data -->
+			<section class="player player--1" alt="player 2 game stats">
 				<div class="name" id="name--1">Player 2</div>
 				<div class="instruction" id="instruction--1">Waiting...</div>
 				<div>
@@ -33,26 +35,30 @@
 				<div class="current-score" id="current--1">Current: 0</div>
 				<div class="total-score" id="total--1">Scorecard: 0</div>
 			</section>
-			<div class="final-data">
+			<!-- buttons to end game and restart game -->
+			<div class="final-data" alt="overall game stats">
 				<div id="total-par" class="total-par">Overall Par: 0</div>
-				<div class="finish-buttons">
+				<div class="finish-buttons" alt="buttons to end or restart game">
 					<button class="btn btn--end">End Game</button>
 					<button class="btn btn--new">Restart Game</button>
 				</div>
 			</div>
 		</main>
+		<!-- User instructions that pop up on start up -->
 		<div id="instructions-popup" class="instructions-popup hidden">
 			<div class="instructions-content">
 				<h2>Welcome to our 9 Hole Golf course!</h2>
 				<p>This is a golf game where you aim to complete each hole in as few swings as possible. The player with the lowest score wins!</p>
 				<p>Instructions:</p>
 				<ul>
-					<li>Click "Swing" to take a shot.</li>
+					<li>You are Player 1, click "Swing" to take a shot.</li>
 					<li>Roll the dice to determine the outcome of your shot.</li>
 					<li>Try to get the ball into the hole in as few swings as possible.</li>
 					<li>If playing against the computer, select "Auto" to let the computer take its turn.</li>
 					<li>Click "New Game" to start a new game.</li>
-					<li>Click "Quit Game" to finish the game and see the final scores.</li>
+					<li>Click "End Game" to finish the game and see the scores to that point.</li>
+					<li>Below these instructions you will see 2 options to play against a "person" or "computer"</li>
+					<li>If you have someone next to you would like to play with select "person", or else select "computer"</li>
 				</ul>
 				<p>Select your opponent:</p>
 				<div class="opponent-buttons">

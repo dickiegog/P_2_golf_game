@@ -8,10 +8,9 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon_io/favicon-32x32.png" />
 	</head>
 	<body>
-		<div class="game-name">9 Hole Golf Course!</div>
 		<main>
+			<div class="game-name">9 Hole Golf Course!</div>
 			<div id="hole-info" class="hole-info">Hole 1 - Par 4</div>
-
 			<section class="player player--0 player--active">
 				<div class="name" id="name--0">Player 1</div>
 				<div class="instruction" id="instruction--0">Swing Away!</div>
@@ -34,10 +33,35 @@
 				<div class="current-score" id="current--1">Current: 0</div>
 				<div class="total-score" id="total--1">Scorecard: 0</div>
 			</section>
-			<div id="total-par" class="total-par">Overall Par: 0</div>
-
-			<button class="btn btn--new">New Game</button>
+			<div class="final-data">
+				<div id="total-par" class="total-par">Overall Par: 0</div>
+				<div class="finish-buttons">
+					<button class="btn btn--end">End Game</button>
+					<button class="btn btn--new">Restart Game</button>
+				</div>
+			</div>
 		</main>
+		<div id="instructions-popup" class="instructions-popup hidden">
+			<div class="instructions-content">
+				<h2>Welcome to our 9 Hole Golf course!</h2>
+				<p>This is a golf game where you aim to complete each hole in as few swings as possible. The player with the lowest score wins!</p>
+				<p>Instructions:</p>
+				<ul>
+					<li>Click "Swing" to take a shot.</li>
+					<li>Roll the dice to determine the outcome of your shot.</li>
+					<li>Try to get the ball into the hole in as few swings as possible.</li>
+					<li>If playing against the computer, select "Auto" to let the computer take its turn.</li>
+					<li>Click "New Game" to start a new game.</li>
+					<li>Click "Quit Game" to finish the game and see the final scores.</li>
+				</ul>
+				<p>Select your opponent:</p>
+				<div class="opponent-buttons">
+					<button id="play-person" class="btn--opponent">Play Against Person</button>
+					<button id="play-computer" class="btn--opponent">Play Against Computer</button>
+				</div>
+			</div>
+		</div>
+
 		<script src="assets/js/script.js"></script>
 	</body>
 </html>

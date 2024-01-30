@@ -12,9 +12,12 @@ const btnNew = document.querySelector(".btn--new");
 const btnAuto1 = document.getElementById("btn--auto-1");
 
 let scores, currentScores, activePlayer, playing, currentPar, swings, totalPar, holeNumber, finishedHoles;
+let againstComputer = false; // Add a variable to track if playing against a computer
 
 // Initialize game
-const init = function () {
+const init = function (isAgainstComputer) {
+	// Pass the 'isAgainstComputer' parameter
+	againstComputer = isAgainstComputer; // Update the againstComputer variable
 	scores = [0, 0];
 	currentScores = [0, 0];
 	swings = [0, 0];
@@ -27,8 +30,32 @@ const init = function () {
 	diceEl.classList.add("hidden");
 	updateUI();
 	newHole();
+	// Display instructions popup before starting the game
+	const instructionsPopup = document.getElementById("instructions-popup");
+	instructionsPopup.classList.remove("hidden");
+
+	// Reset the button text for both players
+	// Reset the button text for both players
+	btnRoll0.textContent = "Swing";
+	btnRoll1.textContent = "Waiting...";
+	hideInstructionsPopup();
+	// Hide the "Auto" button for player 2 if not playing against the computer
+	updateUIForOpponent();
+};
+const updateUIForOpponent = function () {
+	btnRoll1.style.display = againstComputer ? "none" : "inline-block";
+	btnAuto1.style.display = againstComputer ? "inline-block" : "none";
+};
+const hideInstructionsPopup = function () {
+	const instructionsPopup = document.getElementById("instructions-popup");
+	instructionsPopup.classList.add("hidden");
 };
 
+// Show the instructions popup at the start
+const showInstructionsPopup = function () {
+	const instructionsPopup = document.getElementById("instructions-popup");
+	instructionsPopup.classList.remove("hidden");
+};
 const updateUI = function () {
 	document.getElementById(`total--0`).textContent = `Scorecard: ${scores[0]}`;
 	document.getElementById(`total--1`).textContent = `Scorecard: ${scores[1]}`;
@@ -60,7 +87,7 @@ const switchPlayer = function () {
 	btnRoll1.textContent = activePlayer === 1 ? "Swing" : "Waiting...";
 	if (finishedHoles[0] && finishedHoles[1]) {
 		if (holeNumber < 9) {
-			// Add the hole's par to the overall par after both players have finished the hole and incriment hole number
+			// Add the hole's par to the overall par after both players have finished the hole and increment hole number
 			totalPar += currentPar;
 			holeNumber++;
 			newHole();
@@ -125,6 +152,7 @@ const rollDice = function () {
 		}
 	}
 };
+
 const autoPlay = function () {
 	if (activePlayer === 1 && !finishedHoles[1] && playing) {
 		const roll = Math.trunc(Math.random() * 6) + 1;
@@ -168,6 +196,21 @@ const autoPlay = function () {
 	}
 };
 
+// Add event listeners to choose the opponent and start the game
+document.getElementById("play-person").addEventListener("click", function () {
+	againstComputer = false;
+	hideInstructionsPopup();
+	init(false);
+});
+
+document.getElementById("play-computer").addEventListener("click", function () {
+	againstComputer = true;
+	hideInstructionsPopup();
+	init(true);
+});
+
+// Modify the "New Game" button event listener to reset the againstComputer variable
+
 const displayMessage = function (message) {
 	document.getElementById(`instruction--${activePlayer}`).textContent = message;
 	setTimeout(() => {
@@ -191,7 +234,12 @@ btnRoll0.addEventListener("click", function () {
 btnRoll1.addEventListener("click", function () {
 	if (activePlayer === 1) rollDice();
 });
+btnNew.addEventListener("click", function () {
+	hideInstructionsPopup();
+	init(againstComputer);
+});
 
+showInstructionsPopup();
 btnNew.addEventListener("click", init);
 
 init();

@@ -3,7 +3,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
 html {
@@ -23,6 +23,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	max-height: fit-content;
 }
 
 main {
@@ -33,7 +34,6 @@ main {
 	backdrop-filter: blur(200px);
 	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
 	border-radius: 9px;
-	overflow: hidden;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -49,6 +49,9 @@ main {
 	transition: all 0.75s;
 	background-color: rgba(255, 255, 255, 0.8);
 	border-radius: 5px;
+	text-align: center;
+	overflow: hidden; /* Prevent text from overflowing */
+	max-height: fit-content;
 }
 
 .name {
@@ -76,14 +79,17 @@ main {
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 	transition: all 0.2s;
 }
-
-.btn--auto {
-	font-size: 2.2rem;
-	padding: 1rem 2rem;
-	margin: 1rem 2rem 1rem 1rem;
+.finish-buttons {
+	display: flex;
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	justify-content: center;
+	gap: 10px; /* Add some space between buttons */
 }
-
-.btn--new {
+.btn--new,
+.btn--end {
 	font-family: inherit;
 	font-size: 1.8rem;
 	padding: 1rem 2rem;
@@ -94,22 +100,30 @@ main {
 	border-radius: 5px;
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 	transition: all 0.2s;
-	position: absolute;
-	bottom: 2rem;
-	left: 50%;
-	transform: translateX(-50%);
+}
+.btn--opponent {
+	font-family: inherit;
+	font-size: 1.3rem;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	background-color: #0369d7;
+	border: none;
+	color: beige;
+	border-radius: 5px;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+	transition: all 0.2s;
 }
 .game-name {
 	position: absolute;
-	left: 20px;
+	left: -30px;
 	top: 80px;
 	font-size: 4rem;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	margin-bottom: 1rem;
 	color: #cf0221;
 	font-weight: bold; /* Make the text bold */
-	z-index: 1; /* Make sure it appears on top of the game score */
-	transform: rotate(-25deg); /* Rotate the text by -90 degrees to make it vertical */
+	z-index: 10; /* Make sure it appears on top of the game score */
+	transform: rotate(-25deg); /* Rotate the text by -25 degrees to make it vertical */
 }
 
 .instruction {
@@ -131,13 +145,15 @@ main {
 	position: absolute;
 	top: 4rem;
 	left: 50%;
-	padding: 0 2rem;
+	padding: 0.5rem 3rem;
+	width: auto;
 	background-color: #05dafa;
 	border-radius: 10px;
 	transform: translateX(-50%);
 	font-size: 5rem;
 	font-weight: 900;
 	color: #066891;
+	z-index: 9;
 }
 
 .total-par {
@@ -187,7 +203,164 @@ main {
 	font-weight: 700;
 	color: #a5c956;
 }
+.instructions-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+}
+
+.instructions-content {
+	background-color: white;
+	padding: 20px;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+
+#close-instructions {
+	margin-top: 20px;
+	background-color: #d70303;
+	color: beige;
+}
+
+#close-instructions:hover {
+	background-color: #ff1f1f;
+}
+.opponent-buttons {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 10px;
+}
 
 .hidden {
 	display: none;
+}
+/* Media Query for screens below 900px */
+@media (max-width: 920px) {
+	main {
+		max-height: 350px;
+	}
+}
+@media (max-width: 920px) {
+	html {
+		font-size: 50%;
+		box-sizing: border-box;
+	}
+	main {
+		height: 90%;
+	}
+	.player {
+		height: 80%;
+	}
+	.game-name {
+		font-size: 3rem;
+		top: -7px;
+		width: 230px;
+		align-content: center;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.hole-info {
+		font-size: 2.5rem;
+		padding: 0.5rem 2rem;
+
+		margin-top: -5px;
+	}
+
+	.player {
+		margin: 1rem 0;
+	}
+	.btn--roll,
+	.btn--auto {
+		margin-top: 0;
+		margin-bottom: 1rem;
+	}
+	.final-data {
+		margin-bottom: -150px;
+	}
+	.total-par {
+		background-color: rgba(255, 255, 255, 0.922);
+		opacity: 1;
+		font-size: 3rem;
+	}
+}
+/* Media Query for screens below 600px */
+@media (max-width: 640px) {
+	main {
+		margin-top: 20rem;
+		width: 95%;
+		height: auto;
+		flex-direction: column;
+	}
+	body {
+		margin-top: 100px;
+	}
+
+	.game-name {
+		font-size: 2.5rem;
+		top: -50px;
+		width: 250px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.hole-info {
+		font-size: 2rem;
+		padding: 0.5rem 2rem;
+		margin-top: -50px;
+	}
+
+	.player {
+		margin: 1rem 0;
+	}
+
+	.total-par {
+		width: 220px;
+	}
+
+	.final-data {
+		position: relative;
+		opacity: 1;
+		width: 350px;
+		transform: none;
+		margin-top: 12rem;
+	}
+}
+/* Media Query for screens below 400px */
+@media (max-width: 440px) {
+	main {
+		margin-top: -100px;
+		margin-bottom: 0;
+		backdrop-filter: blur(0px);
+		max-height: 600px;
+	}
+	body {
+		margin-top: 0px;
+	}
+	.game-name {
+		font-size: 3rem;
+		top: -60px;
+		width: 230px;
+	}
+	.hole-info {
+		font-size: 2.5rem;
+		padding: 0.5rem 2rem;
+		margin-top: -50px;
+	}
+	.player {
+		padding-bottom: 0;
+	}
+	.total-par {
+		width: 150px;
+	}
 }

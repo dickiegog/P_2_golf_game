@@ -9,14 +9,23 @@ const diceEl = document.querySelector(".dice");
 const btnRoll0 = document.getElementById("btn--roll-0");
 const btnRoll1 = document.getElementById("btn--roll-1");
 const btnNew = document.querySelector(".btn--new");
+const btnEnd = document.querySelector(".btn--end");
 const btnAuto1 = document.getElementById("btn--auto-1");
 
-let scores, currentScores, activePlayer, playing, currentPar, swings, totalPar, holeNumber, finishedHoles;
+let scores,
+	currentScores,
+	activePlayer,
+	playing = false,
+	currentPar,
+	swings,
+	totalPar,
+	holeNumber = 1,
+	finishedHoles;
 let againstComputer = false; // Add a variable to track if playing against a computer
 
 // Initialize game
 const init = function (isAgainstComputer) {
-	// Pass the 'isAgainstComputer' parameter
+	console.log("Init called, isAgainstComputer:", isAgainstComputer);
 	againstComputer = isAgainstComputer; // Update the againstComputer variable
 	scores = [0, 0];
 	currentScores = [0, 0];
@@ -24,7 +33,6 @@ const init = function (isAgainstComputer) {
 	activePlayer = 0;
 	playing = true;
 	totalPar = 0; // Initialize overall par to 0
-	holeNumber = 1;
 	finishedHoles = [false, false];
 
 	diceEl.classList.add("hidden");
@@ -86,12 +94,14 @@ const switchPlayer = function () {
 	btnRoll0.textContent = activePlayer === 0 ? "Swing" : "Waiting...";
 	btnRoll1.textContent = activePlayer === 1 ? "Swing" : "Waiting...";
 	if (finishedHoles[0] && finishedHoles[1]) {
+		console.log("holeNumber:", holeNumber);
 		if (holeNumber < 9) {
-			// Add the hole's par to the overall par after both players have finished the hole and increment hole number
+			// Move to the next hole
 			totalPar += currentPar;
 			holeNumber++;
 			newHole();
 		} else {
+			// End the game after the last hole
 			totalPar += currentPar;
 			updateUI();
 			playing = false;
@@ -101,18 +111,15 @@ const switchPlayer = function () {
 };
 
 const checkForWinner = function () {
-	if (finishedHoles[0] && finishedHoles[1]) {
-		playing = false;
-		let winnerMessage = "";
-		if (scores[0] < scores[1]) {
-			winnerMessage = `Player 1 wins with a score of ${scores[0]} to ${scores[1]}`;
-		} else if (scores[0] > scores[1]) {
-			winnerMessage = `Player 2 wins with a score of ${scores[1]} to ${scores[0]}`;
-		} else {
-			winnerMessage = "It's a tie!";
-		}
-		alert(`Game over! Total Par: ${totalPar}\n${winnerMessage}`);
+	let winnerMessage = "";
+	if (scores[0] < scores[1]) {
+		winnerMessage = `Player 1 wins with a score of ${scores[0]} to ${scores[1]}`;
+	} else if (scores[0] > scores[1]) {
+		winnerMessage = `Player 2 wins with a score of ${scores[1]} to ${scores[0]}`;
+	} else {
+		winnerMessage = "It's a tie!";
 	}
+	alert(`Game over! Total Par: ${totalPar}\n${winnerMessage}`);
 };
 
 const rollDice = function () {
@@ -142,7 +149,6 @@ const rollDice = function () {
 				displayMessage("IN THE HOLE!");
 				setTimeout(() => {
 					diceEl.classList.add("hidden"); // Hide the dice after 2 seconds
-					checkForWinner();
 				}, 1000);
 			}
 			updateUI(); // Update UI after adding to the score
@@ -180,7 +186,6 @@ const autoPlay = function () {
 				displayMessage("IN THE HOLE!");
 				setTimeout(() => {
 					diceEl.classList.add("hidden"); // Hide the dice after 2 seconds
-					checkForWinner();
 				}, 1000);
 			}
 			updateUI(); // Update UI after adding to the score
@@ -195,19 +200,6 @@ const autoPlay = function () {
 		}
 	}
 };
-
-// Add event listeners to choose the opponent and start the game
-document.getElementById("play-person").addEventListener("click", function () {
-	againstComputer = false;
-	hideInstructionsPopup();
-	init(false);
-});
-
-document.getElementById("play-computer").addEventListener("click", function () {
-	againstComputer = true;
-	hideInstructionsPopup();
-	init(true);
-});
 
 // Modify the "New Game" button event listener to reset the againstComputer variable
 
@@ -239,7 +231,30 @@ btnNew.addEventListener("click", function () {
 	init(againstComputer);
 });
 
+// Add event listeners to choose the opponent and start the game
+document.getElementById("play-person").addEventListener("click", function () {
+	console.log("Play person clicked");
+	againstComputer = false;
+	hideInstructionsPopup();
+	init(false);
+});
+
+document.getElementById("play-computer").addEventListener("click", function () {
+	console.log("Play computer clicked");
+	againstComputer = true;
+	hideInstructionsPopup();
+	init(true);
+});
+console.log("Game status out:", playing);
+btnEnd.addEventListener("click", function () {
+	console.log("Game status in:", playing);
+	if (playing) {
+		// End the game and check for the winner
+		checkForWinner();
+		playing = false; // Stop the game
+	} else {
+		alert("The game is not currently active.");
+	}
+});
 showInstructionsPopup();
 btnNew.addEventListener("click", init);
-
-init();

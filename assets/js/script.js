@@ -75,8 +75,8 @@ const updateUI = function () {
 	totalParEl.textContent = `Overall ${totalPar} Par`;
 	const parScore0 = scores[0] - totalPar;
 	const parScore1 = scores[1] - totalPar;
-	document.getElementById(`name--0`).textContent = `Player 1: ${holeNumber === 1 ? "" : parScore0 + " Par"}`;
-	document.getElementById(`name--1`).textContent = `Player 2: ${holeNumber === 1 ? "" : parScore1 + " Par"}`;
+	document.getElementById(`name--0`).textContent = `Player 1: ${holeNumber === 1 ? "" : parScore0 === 0 ? "Par" : parScore0 + " Par"}`;
+	document.getElementById(`name--1`).textContent = `Player 2: ${holeNumber === 1 ? "" : parScore1 === 0 ? "Par" : parScore1 + " Par"}`;
 };
 
 const newHole = function () {
@@ -151,8 +151,7 @@ const rollDice = function () {
 					diceEl.classList.add("hidden"); // Hide the dice after 2 seconds
 				}, 1000);
 			}
-			updateUI(); // Update UI after adding to the score
-			switchPlayer();
+			switchPlayer(); // Switch player without changing the score
 		} else {
 			updateUI(); // Update UI if the current score changes
 		}

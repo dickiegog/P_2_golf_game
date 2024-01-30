@@ -351,7 +351,10 @@ main {
 		margin-top: -100px;
 		margin-bottom: 0;
 		backdrop-filter: blur(0px);
+		height: auto;
+		overflow-x: visible;
 	}
+
 	body {
 		margin-top: 10px;
 	}
@@ -366,7 +369,9 @@ main {
 		margin-top: -50px;
 	}
 	.instructions-popup {
-		width: 100%;
+		margin-top: -100px;
+		width: 86%;
+		height: 95%;
 	}
 	.player {
 		padding-bottom: 0;

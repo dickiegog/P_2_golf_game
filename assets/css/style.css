@@ -1,16 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
 html {
 	font-size: 62.5%;
 	box-sizing: border-box;
 }
-
 body {
 	font-family: "Nunito", sans-serif;
 	font-weight: 400;
@@ -25,7 +22,6 @@ body {
 	justify-content: center;
 	max-height: fit-content;
 }
-
 main {
 	position: relative;
 	width: 100rem;
@@ -168,7 +164,6 @@ main {
 	font-weight: 700;
 	color: #0365b5;
 }
-
 .dice {
 	position: absolute;
 	top: 50%;
@@ -185,7 +180,6 @@ main {
 	box-sizing: border-box;
 	border: solid 3px #d9d9d9;
 }
-
 .player--active {
 	background-color: rgba(255, 255, 255, 0.9);
 	border: 2px solid #3eb606;
@@ -218,7 +212,6 @@ main {
 	max-height: 100%;
 	overflow: hidden;
 }
-
 .instructions-content {
 	background-color: white;
 	padding: 20px;
@@ -232,7 +225,6 @@ main {
 	max-height: 70%; /* Adjust the maximum height to 80% */
 	overflow: hidden;
 }
-
 #close-instructions {
 	margin-top: 20px;
 	background-color: #d70303;
@@ -248,7 +240,6 @@ main {
 	margin-top: 10px;
 	gap: 10px;
 }
-
 .hidden {
 	display: none;
 }
@@ -274,7 +265,6 @@ main {
 		left: 50%;
 		transform: translateX(-50%);
 	}
-
 	.hole-info {
 		font-size: 2.5rem;
 		padding: 0.5rem 2rem;
@@ -312,7 +302,6 @@ main {
 	body {
 		margin-top: 100px;
 	}
-
 	.game-name {
 		font-size: 2.5rem;
 		top: -50px;
@@ -320,7 +309,6 @@ main {
 		left: 50%;
 		transform: translateX(-50%);
 	}
-
 	.hole-info {
 		font-size: 2rem;
 		padding: 0.5rem 2rem;
@@ -355,7 +343,6 @@ main {
 		max-height: 100%;
 		overflow-x: visible;
 	}
-
 	body {
 		margin-top: 10px;
 	}

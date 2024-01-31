@@ -24,6 +24,44 @@ let scores,
 	finishedHoles;
 let againstComputer = false; // Add a variable to track if playing against a computer
 
+// Add event listeners
+btnAuto1.addEventListener("click", function () {
+	if (activePlayer === 1 && !finishedHoles[1] && playing) {
+		autoPlay(); // Start auto-play for player 2
+	}
+});
+btnRoll0.addEventListener("click", function () {
+	if (activePlayer === 0) rollDice();
+});
+btnRoll1.addEventListener("click", function () {
+	if (activePlayer === 1) rollDice();
+});
+btnNew.addEventListener("click", function () {
+	hideInstructionsPopup();
+	init(againstComputer);
+});
+
+// Add event listeners to choose the opponent and start the game
+document.getElementById("play-person").addEventListener("click", function () {
+	againstComputer = false;
+	hideInstructionsPopup();
+	init(false);
+});
+document.getElementById("play-computer").addEventListener("click", function () {
+	againstComputer = true;
+	hideInstructionsPopup();
+	init(true);
+});
+btnEnd.addEventListener("click", function () {
+	if (playing) {
+		// End the game and check for the winner
+		checkForWinner();
+		playing = false; // Stop the game
+	} else {
+		alert("The game is not currently active.");
+	}
+});
+
 // Initialize game
 const init = function (isAgainstComputer) {
 	againstComputer = isAgainstComputer; // Update the againstComputer variable
@@ -206,46 +244,5 @@ const displayMessage = function (message) {
 		}
 	}, 2000);
 };
-
-// Add event listeners
-btnAuto1.addEventListener("click", function () {
-	if (activePlayer === 1 && !finishedHoles[1] && playing) {
-		autoPlay(); // Start auto-play for player 2
-	}
-});
-
-btnRoll0.addEventListener("click", function () {
-	if (activePlayer === 0) rollDice();
-});
-
-btnRoll1.addEventListener("click", function () {
-	if (activePlayer === 1) rollDice();
-});
-btnNew.addEventListener("click", function () {
-	hideInstructionsPopup();
-	init(againstComputer);
-});
-
-// Add event listeners to choose the opponent and start the game
-document.getElementById("play-person").addEventListener("click", function () {
-	againstComputer = false;
-	hideInstructionsPopup();
-	init(false);
-});
-
-document.getElementById("play-computer").addEventListener("click", function () {
-	againstComputer = true;
-	hideInstructionsPopup();
-	init(true);
-});
-btnEnd.addEventListener("click", function () {
-	if (playing) {
-		// End the game and check for the winner
-		checkForWinner();
-		playing = false; // Stop the game
-	} else {
-		alert("The game is not currently active.");
-	}
-});
 showInstructionsPopup();
 btnNew.addEventListener("click", init);

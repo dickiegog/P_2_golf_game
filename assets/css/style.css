@@ -326,7 +326,9 @@ main {
 		padding: 0.5rem 2rem;
 		margin-top: -50px;
 	}
-
+	.instructions-popup {
+		margin-top: -200px;
+	}
 	.player {
 		margin: 1rem 0;
 	}
@@ -369,8 +371,10 @@ main {
 	}
 	.instructions-popup {
 		margin-top: -100px;
-		width: 100%;
+		width: 115%;
+		height: 140%;
 		max-height: none;
+		max-width: none;
 	}
 	.instructions-content {
 		width: 70%;

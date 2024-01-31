@@ -62,13 +62,14 @@ main {
 .btn--roll,
 .btn--auto {
 	font-family: inherit;
-	font-size: 2.2rem;
+	font-size: 2.5rem;
+	font-weight: bolder;
 	padding: 1rem 4rem;
 	margin-bottom: 5rem;
 	margin-top: 2rem;
 	cursor: pointer;
 	background-color: #3eb606;
-	color: beige;
+	color: #000000;
 	border: none;
 	border-radius: 5px;
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -92,7 +93,7 @@ main {
 	cursor: pointer;
 	background-color: #d70303;
 	border: none;
-	color: beige;
+	color: rgb(255, 255, 255);
 	border-radius: 5px;
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 	transition: all 0.2s;

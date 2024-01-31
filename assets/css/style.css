@@ -282,7 +282,7 @@ main {
 		margin-top: -5px;
 	}
 	.instructions-content {
-		height: autofd;
+		height: auto;
 		max-height: 100%;
 	}
 	.player {
@@ -351,7 +351,7 @@ main {
 		margin-top: -100px;
 		margin-bottom: 0;
 		backdrop-filter: blur(0px);
-		height: fill-available;
+		height: auto;
 		max-height: 100%;
 		overflow-x: visible;
 	}

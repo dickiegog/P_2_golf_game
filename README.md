@@ -7,7 +7,7 @@
 - [Game Rules](#game-rules)
 - [Getting Started](#getting-started)
 - [How to Play](#how-to-play)
-- [Images] (#image)
+- [Images](#images)
 - [Author](#author)
 - [License](#license)
 
@@ -46,7 +46,7 @@ Golf Game is a simple two-player golf simulation game. Players take turns to hit
 
 To get started with the Golf Game, follow these steps:
 
-1. Clone or download the project from the repository: [Golf Game Repository](https://github.com/your-username/golf-game).
+1. Clone or download the project from the repository: [Golf Game Repository](https://github.com/dickiegog/P_2_golf_game).
 
 2. Open the `index.html` file in your web browser to launch the game.
 
@@ -64,7 +64,7 @@ To get started with the Golf Game, follow these steps:
 
 - The game ends after completing all the holes, and a winner is determined based on the lowest overall score.
 
-## Image
+## Images
 
 Image credit from:
 background - "https://www.istockphoto.com/vector/golf-field-with-flag-gm165594199-6744168?phrase=golf+backgrounds"
@@ -76,4 +76,4 @@ This Golf Game project was created by [Your Name]. Feel free to reach out if you
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
